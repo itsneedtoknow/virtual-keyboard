@@ -42,7 +42,8 @@ width: 1200px;
     padding-bottom: 0;
     background: var(--keyboard-color);
     border: 3px solid #222222;
-    border-radius: 5px
+    border-radius: 5px;
+    
 }
 .keyboard-wrapper{
     margin: 0 auto;
@@ -55,11 +56,15 @@ width: 1200px;
 }
 .keyboard__key:hover {
     background-color: var(--key-hover);
+    transform: scale(90%);
+    transition: 0.2s;
     
 }
 .keyboard__key.active{
     background-color: var(--key-click);
     color: #222222;
+    transition: 0.2s;
+    
 }
 .keyboard__key{
     width: 40px;
@@ -74,8 +79,7 @@ width: 1200px;
     background: var(--key-color);
     border-radius: 3px;
     cursor: pointer;
-    user-select: none;
-    transition: border-radius 0.3s, background-color 0.3s;
+    transition: 0.2s;
 }
 .rus {
 }
