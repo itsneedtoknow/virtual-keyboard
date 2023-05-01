@@ -7,8 +7,8 @@ keyboardWrapper = document.createElement('div');
 // массив букв
 keys =[
     {keyEng: '`', keyEngCaps: '`', keyRus: 'ё', keyRusCaps: 'Ё', keyCode: 'Backquote'},
-    {keyEng: '2', keyEngCaps: '2', keyRus: '2', keyRusCaps: '1', keyCode: 'Digit2'},
     {keyEng: '1', keyEngCaps: '1', keyRus: '1', keyRusCaps: '2', keyCode: 'Digit1'},
+    {keyEng: '2', keyEngCaps: '2', keyRus: '2', keyRusCaps: '1', keyCode: 'Digit2'},    
     {keyEng: '3', keyEngCaps: '3', keyRus: '3', keyRusCaps: '3', keyCode: 'Digit3'},
     {keyEng: '4', keyEngCaps: '4', keyRus: '4', keyRusCaps: '4', keyCode: 'Digit4'},
     {keyEng: '5', keyEngCaps: '5', keyRus: '5', keyRusCaps: '5', keyCode: 'Digit5'},
