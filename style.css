@@ -1,0 +1,127 @@
+:root{
+    --key-color: #740345;
+    --key-hover: #844f6e;
+    --key-click: #b691a6;
+    --keyboard-color:#87b9c4;
+
+}
+.body {
+    margin: 0;
+    padding: 0;
+    font-family: roboto;
+}
+textarea{
+    height: 200px;
+    display: block;
+    width: 717px;
+    margin: 35px auto 10px;
+    padding:10px;
+    font-size: 18px;
+    color:#444444;
+    overflow: auto;
+}
+.window-wrapper {
+margin: 0 auto;
+width: 1200px;
+}
+.page-header {
+    width: 100%;
+    
+    
+}
+.page-title {
+    text-align: center;
+    margin: 20px auto;
+}
+.keyboard {
+    margin: 0 auto;
+    height: 240px;
+    width: 720px;
+    padding: 5px;
+    padding-left: 0;
+    padding-bottom: 0;
+    background: var(--keyboard-color);
+    border: 3px solid #222222;
+    border-radius: 5px;
+    
+}
+.keyboard-wrapper{
+    margin: 0 auto;
+    max-width: 716px;
+}
+.keyboard .row{
+   justify-content: center;
+    height: 40px;
+    margin-bottom: 8px;
+}
+.keyboard__key:hover {
+    background-color: var(--key-hover);
+    transform: scale(90%);
+    transition: 0.2s;
+    
+}
+.keyboard__key.active{
+    background-color: var(--key-click);
+    color: #222222;
+    transition: 0.2s;
+    
+}
+.keyboard__key{
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-left: 6px;
+    margin-top: 6px;
+    font-weight: 500;
+    line-height: 40px;
+    text-align: center;
+    color: #ffffff;
+    background: var(--key-color);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.rus {
+}
+
+.upper-case,
+.caps,
+.shift-caps,
+.lower-case {
+    display: block;
+    min-height: 40px;
+}
+.Backspace,
+.CapsLock,
+.ShiftLeft{
+    width: 100px;
+}
+.Enter,
+.ShiftRight{
+    width: 86px;
+}
+.Tab{
+    width: 50px;
+}
+.Space{
+    width: 330px;
+}
+.ArrowRight{
+    background: '▲';
+}
+.hidden{
+    display: none;
+}
+.clearfix{
+    clear: both;
+    width: 100%;
+}
+.hidden,
+.caps_hidden,
+.lang_hidden{
+    display: none;
+}
+.message {
+    text-align: center;
+    margin: 14px auto;
+}
