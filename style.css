@@ -11,12 +11,12 @@
     font-family: roboto;
 }
 textarea{
-    height:200px;
+    height: 200px;
     display: block;
-    width:800px;
+    width: 717px;
     margin: 35px auto 10px;
     padding:10px;
-    font-size:18px;
+    font-size: 18px;
     color:#444444;
     overflow: auto;
 }
@@ -57,8 +57,9 @@ width: 1200px;
     background-color: var(--key-hover);
     
 }
-.keyboard__key:active{
+.keyboard__key.active{
     background-color: var(--key-click);
+    color: #222222;
 }
 .keyboard__key{
     width: 40px;
@@ -110,4 +111,13 @@ width: 1200px;
 .clearfix{
     clear: both;
     width: 100%;
+}
+.hidden,
+.caps_hidden,
+.lang_hidden{
+    display: none;
+}
+.message {
+    text-align: center;
+    margin: 14px auto;
 }

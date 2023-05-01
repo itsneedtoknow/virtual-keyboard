@@ -1,85 +1,85 @@
-const body = document.querySelector('.body');
+const body = document.querySelector('.body'); 
 let wrapper = document.createElement('div');
 header = document.createElement('h1');
 textArea = document.createElement('textarea');
 keyboard = document.createElement('div');
 keyboardWrapper = document.createElement('div');
 // массив букв
-let keys =[
-    {key1: '`', key2: 'ё', keyCode: 'Backquote'},
-    {key1: '1', key2: '1', keyCode: 'Digit2'},
-    {key1: '2', key2: '2', keyCode: 'Digit1'},
-    {key1: '3', key2: '3', keyCode: 'Digit3'},
-    {key1: '4', key2: '4', keyCode: 'Digit4'},
-    {key1: '5', key2: '5', keyCode: 'Digit5'},
-    {key1: '6', key2: '6', keyCode: 'Digit6'},
-    {key1: '7', key2: '7', keyCode: 'Digit7'},
-    {key1: '8', key2: '8', keyCode: 'Digit8'},
-    {key1: '9', key2: '9', keyCode: 'Digit9'},
-    {key1: '0', key2: '0', keyCode: 'Digit0'},
-    {key1: '-', key2: '-', keyCode: 'Minus'},
-    {key1: '=', key2: '=', keyCode: 'Equal'},
-    {key1: 'Backspace', key2: 'Backspace', keyCode: 'Backspace'},
-    {key1: 'Tab', key2: 'Tab', keyCode: 'Tab'},
-    {key1: 'q', key2: 'й', keyCode: 'KeyQ'},
-    {key1: 'w', key2: 'ц', keyCode: 'KeyW'},
-    {key1: 'e', key2: 'у', keyCode: 'KeyE'},
-    {key1: 'r', key2: 'к', keyCode: 'KeyR'},
-    {key1: 't', key2: 'е', keyCode: 'KeyT'},
-    {key1: 'y', key2: 'н', keyCode: 'KeyY'},
-    {key1: 'u', key2: 'г', keyCode: 'KeyU'},
-    {key1: 'i', key2: 'ш', keyCode: 'KeyI'},
-    {key1: 'o', key2: 'щ', keyCode: 'KeyO'} ,
-    {key1: 'p', key2: 'з', keyCode: 'KeyP'},
-    {key1: '[', key2: 'х', keyCode: 'BracketLeft'},
-    {key1: ']', key2: 'ъ', keyCode: 'BracketRight'},
-    {key1: '\\', key2: '\\', keyCode: 'Backslash'},
-    {key1: 'Del', key2: 'Del', keyCode: 'Delete'},
-    {key1: 'CapsLock', key2: 'CapsLock', keyCode: 'CapsLock'},
-    {key1: 'a', key2: 'ф', keyCode: 'KeyA'},
-    {key1: 's', key2: 'ы', keyCode: 'KeyS'},
-    {key1: 'd', key2: 'в', keyCode: 'KeyD'},
-    {key1: 'f', key2: 'а', keyCode: 'KeyF'},
-    {key1: 'g', key2: 'п', keyCode: 'KeyG'},
-    {key1: 'h', key2: 'р', keyCode: 'KeyH'},
-    {key1: 'j', key2: 'о', keyCode: 'KeyJ'},
-    {key1: 'k', key2: 'л', keyCode: 'KeyK'},
-    {key1: 'l', key2: 'д', keyCode: 'KeyL'},
-    {key1: ';', key2: 'ж', keyCode: 'Semicolon'},
-    {key1: "'", key2: 'э', keyCode: 'Quote'},
-    {key1: 'Enter', key2: 'Enter', keyCode: 'Enter'},
-    {key1: 'Shift', key2: 'Shift', keyCode: 'ShiftLeft'},
-    {key1: 'z', key2: 'я', keyCode: 'KeyZ'},
-    {key1: 'x', key2: 'ч', keyCode: 'KeyX'},
-    {key1: 'c', key2: 'с', keyCode: 'KeyC'},
-    {key1: 'v', key2: 'м', keyCode: 'KeyV'},
-    {key1: 'b', key2: 'и', keyCode: 'KeyB'} ,
-    {key1: 'n', key2: 'т', keyCode: 'KeyN'},
-    {key1: 'm', key2: 'ь', keyCode: 'KeyM'},
-    {key1: ',', key2: 'б', keyCode: 'Comma'},
-    {key1: '.', key2: 'ю', keyCode: 'Period'},
-    {key1: '/', key2: '.', keyCode: 'Slash'} ,
-    {key1: 'ArrowUp', key2: 'ArrowUp', keyCode: 'ArrowUp'},
-    {key1: 'Shift', key2: 'Shift', keyCode: 'ShiftRight'},
-    {key1: 'Control', key2: 'Control', keyCode: 'ControlLeft'},
-    {key1: 'Meta', key2: 'Meta', keyCode: 'MetaLeft'},
-    {key1: 'Alt', key2: 'Alt', keyCode: 'AltLeft'},
-    {key1: ' ', key2: ' ', keyCode: 'Space'},
-    {key1: 'Alt', key2: 'Alt', keyCode: 'AltRight'},
-    {key1: 'ArrowLeft', key2: 'ArrowLeft', keyCode: 'ArrowLeft'},            
-    {key1: 'ArrowDown', key2: 'ArrowDown', keyCode: 'ArrowDown'},
-    {key1: 'ArrowRight', key2: 'ArrowRight', keyCode: 'ArrowRight'},
-    {key1: 'Control', key2: 'Control', keyCode: 'ControlRight'},
-]
+keys =[
+    {keyEng: '`', keyEngCaps: '`', keyRus: 'ё', keyRusCaps: 'Ё', keyCode: 'Backquote'},
+    {keyEng: '2', keyEngCaps: '2', keyRus: '2', keyRusCaps: '1', keyCode: 'Digit2'},
+    {keyEng: '1', keyEngCaps: '1', keyRus: '1', keyRusCaps: '2', keyCode: 'Digit1'},
+    {keyEng: '3', keyEngCaps: '3', keyRus: '3', keyRusCaps: '3', keyCode: 'Digit3'},
+    {keyEng: '4', keyEngCaps: '4', keyRus: '4', keyRusCaps: '4', keyCode: 'Digit4'},
+    {keyEng: '5', keyEngCaps: '5', keyRus: '5', keyRusCaps: '5', keyCode: 'Digit5'},
+    {keyEng: '6', keyEngCaps: '6', keyRus: '6', keyRusCaps: '6', keyCode: 'Digit6'},
+    {keyEng: '7', keyEngCaps: '7', keyRus: '7', keyRusCaps: '7', keyCode: 'Digit7'},
+    {keyEng: '8', keyEngCaps: '8', keyRus: '8', keyRusCaps: '8', keyCode: 'Digit8'},
+    {keyEng: '9', keyEngCaps: '9', keyRus: '9', keyRusCaps: '9', keyCode: 'Digit9'},
+    {keyEng: '0', keyEngCaps: '0', keyRus: '0', keyRusCaps: '0', keyCode: 'Digit0'},
+    {keyEng: '-', keyEngCaps: '-', keyRus: '-', keyRusCaps: '-', keyCode: 'Minus'},
+    {keyEng: '=', keyEngCaps: '=', keyRus: '=', keyRusCaps: '=', keyCode: 'Equal'},
+    {keyEng: 'Backspace', keyEngCaps: 'Backspace', keyRus: 'Backspace', keyRusCaps: 'Backspace', keyCode: 'Backspace'},
+    {keyEng: 'Tab', keyEngCaps: 'Tab', keyRus: 'Tab', keyRusCaps: 'Tab', keyCode: 'Tab'},
+    {keyEng: 'q', keyEngCaps: 'Q', keyRus: 'й', keyRusCaps: 'Й', keyCode: 'KeyQ'},
+    {keyEng: 'w', keyEngCaps: 'W', keyRus: 'ц', keyRusCaps: 'Ц', keyCode: 'KeyW'},
+    {keyEng: 'e', keyEngCaps: 'E', keyRus: 'у', keyRusCaps: 'У', keyCode: 'KeyE'},
+    {keyEng: 'r', keyEngCaps: 'R', keyRus: 'к', keyRusCaps: 'К', keyCode: 'KeyR'},
+    {keyEng: 't', keyEngCaps: 'T', keyRus: 'е', keyRusCaps: 'Е', keyCode: 'KeyT'},
+    {keyEng: 'y', keyEngCaps: 'Y', keyRus: 'н', keyRusCaps: 'Н', keyCode: 'KeyY'},
+    {keyEng: 'u', keyEngCaps: 'U', keyRus: 'г', keyRusCaps: 'Г', keyCode: 'KeyU'},
+    {keyEng: 'i', keyEngCaps: 'I', keyRus: 'ш', keyRusCaps: 'Ш', keyCode: 'KeyI'},
+    {keyEng: 'o', keyEngCaps: 'O', keyRus: 'щ', keyRusCaps: 'Щ', keyCode: 'KeyO'} ,
+    {keyEng: 'p', keyEngCaps: 'P', keyRus: 'з', keyRusCaps: 'З', keyCode: 'KeyP'},
+    {keyEng: '[', keyEngCaps: '[', keyRus: 'х', keyRusCaps: 'Х', keyCode: 'BracketLeft'},
+    {keyEng: ']', keyEngCaps: ']', keyRus: 'ъ', keyRusCaps: 'Ъ', keyCode: 'BracketRight'},
+    {keyEng: '\\', keyEngCaps: '\\', keyRus: '\\', keyRusCaps: '\\', keyCode: 'Backslash'},
+    {keyEng: 'Del', keyEngCaps: 'Del', keyRus: 'Del', keyRusCaps: 'Del', keyCode: 'Delete'},
+    {keyEng: 'CapsLock', keyEngCaps: 'CapsLock', keyRus: 'CapsLock', keyRusCaps: 'CapsLock', keyCode: 'CapsLock'},
+    {keyEng: 'a', keyEngCaps: 'A', keyRus: 'ф', keyRusCaps: 'Ф', keyCode: 'KeyA'},
+    {keyEng: 's', keyEngCaps: 'S', keyRus: 'ы', keyRusCaps: 'Ы', keyCode: 'KeyS'},
+    {keyEng: 'd', keyEngCaps: 'D', keyRus: 'в', keyRusCaps: 'В', keyCode: 'KeyD'},
+    {keyEng: 'f', keyEngCaps: 'F', keyRus: 'а', keyRusCaps: 'А', keyCode: 'KeyF'},
+    {keyEng: 'g', keyEngCaps: 'G', keyRus: 'п', keyRusCaps: 'П', keyCode: 'KeyG'},
+    {keyEng: 'h', keyEngCaps: 'H', keyRus: 'р', keyRusCaps: 'Р', keyCode: 'KeyH'},
+    {keyEng: 'j', keyEngCaps: 'J', keyRus: 'о', keyRusCaps: 'О', keyCode: 'KeyJ'},
+    {keyEng: 'k', keyEngCaps: 'K', keyRus: 'л', keyRusCaps: 'Л', keyCode: 'KeyK'},
+    {keyEng: 'l', keyEngCaps: 'L', keyRus: 'д', keyRusCaps: 'Д', keyCode: 'KeyL'},
+    {keyEng: ';', keyEngCaps: ';', keyRus: 'ж', keyRusCaps: 'Ж', keyCode: 'Semicolon'},
+    {keyEng: "'", keyEngCaps: "'", keyRus: 'э', keyRusCaps: 'Э', keyCode: 'Quote'},
+    {keyEng: 'Enter', keyEngCaps: "Enter", keyRus: 'Enter', keyRusCaps: 'Enter', keyCode: 'Enter'},
+    {keyEng: 'Shift', keyEngCaps: "Shift", keyRus: 'Shift', keyRusCaps: 'Shift', keyCode: 'ShiftLeft'},
+    {keyEng: 'z', keyEngCaps: "Z", keyRus: 'я', keyRusCaps: 'Я', keyCode: 'KeyZ'},
+    {keyEng: 'x', keyEngCaps: "X", keyRus: 'ч', keyRusCaps: 'Ч', keyCode: 'KeyX'},
+    {keyEng: 'c', keyEngCaps: "C", keyRus: 'с', keyRusCaps: 'С', keyCode: 'KeyC'},
+    {keyEng: 'v', keyEngCaps: "V", keyRus: 'м', keyRusCaps: 'М', keyCode: 'KeyV'},
+    {keyEng: 'b', keyEngCaps: "B", keyRus: 'и', keyRusCaps: 'И', keyCode: 'KeyB'} ,
+    {keyEng: 'n', keyEngCaps: "N", keyRus: 'т', keyRusCaps: 'Т', keyCode: 'KeyN'},
+    {keyEng: 'm', keyEngCaps: "M", keyRus: 'ь', keyRusCaps: 'Ь', keyCode: 'KeyM'},
+    {keyEng: ',', keyEngCaps: ",", keyRus: 'б', keyRusCaps: 'Б', keyCode: 'Comma'},
+    {keyEng: '.', keyEngCaps: ".", keyRus: 'ю', keyRusCaps: 'Ю', keyCode: 'Period'},
+    {keyEng: '/', keyEngCaps: "/", keyRus: '.', keyRusCaps: '.', keyCode: 'Slash'} ,
+    {keyEng: 'ArrowUp', keyEngCaps: "ArrowUp", keyRus: 'ArrowUp', keyRusCaps: 'ArrowUp', keyCode: 'ArrowUp'},
+    {keyEng: 'Shift', keyEngCaps: "Shift", keyRus: 'Shift', keyRusCaps: 'Shift', keyCode: 'ShiftRight'},
+    {keyEng: 'Control', keyEngCaps: "Control", keyRus: 'Control', keyRusCaps: 'Control', keyCode: 'ControlLeft'},
+    {keyEng: 'Meta', keyEngCaps: "Meta", keyRus: 'Meta', keyRusCaps: 'Meta',keyCode: 'MetaLeft'},
+    {keyEng: 'Alt', keyEngCaps: "Alt", keyRus: 'Alt', keyRusCaps: 'Alt', keyCode: 'AltLeft'},
+    {keyEng: ' ', keyEngCaps: " ", keyRus: ' ', keyRusCaps: ' ', keyCode: 'Space'},
+    {keyEng: 'Alt', keyEngCaps: "Alt", keyRus: 'Alt', keyRusCaps: 'Alt', keyCode: 'AltRight'},
+    {keyEng: 'ArrowLeft', keyEngCaps: "ArrowLeft", keyRus: 'ArrowLeft', keyRusCaps: 'ArrowLeft', keyCode: 'ArrowLeft'},            
+    {keyEng: 'ArrowDown', keyEngCaps: "ArrowDown", keyRus: 'ArrowDown', keyRusCaps: 'ArrowDown', keyCode: 'ArrowDown'},
+    {keyEng: 'ArrowRight', keyEngCaps: "ArrowRight", keyRus: 'ArrowRight', keyRusCaps: 'ArrowRight', keyCode: 'ArrowRight'},
+    {keyEng: 'Control', keyEngCaps: "Control", keyRus: 'Control', keyRusCaps: 'Control', keyCode: 'ControlRight'},
+];
+key = document.querySelectorAll('.keyboard__key');
+notifyMsg = document.createElement('p');
 
 
-// создать клавиатуру
+// создать клавиатуру и поле ввода
 function createPage() {
 
-  
-
     // wrapper
-        wrapper.className = 'window-wrapper';
+        wrapper.className = 'fndow-wrapper';
         body.appendChild(wrapper);
 
     // header
@@ -100,207 +100,388 @@ function createPage() {
     keyboardWrapper.className='keyboard-wrapper';
     keyboard.appendChild(keyboardWrapper);
 
-//     //key
-    if(keyboard.classList.contains('eng')){
-//если англ раскладка
-    for(let i = 0; i<keys.length;i++){
-
-    let keyBtn = document.createElement('div');
-    keyBtn.className='keyboard__key ' + keys[i].keyCode;
-    keyBtn.innerHTML = keys[i].key1.toString();
-    if(keyBtn.innerHTML == 'ArrowRight'){
-        keyBtn.innerHTML = '►';
-    }else if(keyBtn.innerHTML == 'ArrowUp'){
-        keyBtn.innerHTML = '▲';
-    }else if(keyBtn.innerHTML == 'ArrowLeft'){
-        keyBtn.innerHTML = '◄';
-    }else if(keyBtn.innerHTML == 'ArrowDown'){
-        keyBtn.innerHTML = '▼';
-    }else if(keyBtn.innerHTML == 'Control'){
-        keyBtn.innerHTML = 'Ctrl';
-    }else if(keyBtn.innerHTML == 'Meta'){
-        keyBtn.innerHTML = 'Win';
-    }
-    keyboardWrapper.appendChild(keyBtn);
-
-
-    if(i==13 || i ==28 || i == 41 || i==54){
-        keyBtn = document.createElement('div');
-        keyBtn.className='clearfix';
-        keyBtn.innerHTML = '';
-        keyboardWrapper.appendChild(keyBtn); 
-    }
-
-    
-    }
-    }
-    else if(keyboard.classList.contains('rus')){
-        for(let i = 0; i<keys.length;i++){
-
-            let keyBtn = document.createElement('div');
-            keyBtn.className='keyboard__key ' + keys[i].keyCode;
-            keyBtn.innerHTML = keys[i].key2.toString();
-            if(keyBtn.innerHTML == 'ArrowRight'){
-                keyBtn.innerHTML = '►';
-            }else if(keyBtn.innerHTML == 'ArrowUp'){
-                keyBtn.innerHTML = '▲';
-            }else if(keyBtn.innerHTML == 'ArrowLeft'){
-                keyBtn.innerHTML = '◄';
-            }else if(keyBtn.innerHTML == 'ArrowDown'){
-                keyBtn.innerHTML = '▼';
-            }else if(keyBtn.innerHTML == 'Control'){
-                keyBtn.innerHTML = 'Ctrl';
-            }else if(keyBtn.innerHTML == 'Meta'){
-                keyBtn.innerHTML = 'Win';
-            }
-            keyboardWrapper.appendChild(keyBtn);
-        
-        
-            if(i==13 || i ==28 || i == 41 || i==54){
-                keyBtn = document.createElement('div');
-                keyBtn.className='clearfix';
-                keyBtn.innerHTML = '';
-                keyboardWrapper.appendChild(keyBtn); 
-            }
-        
-            
-            }
-    }
+    //key
    
-}
+    keyBoardMake();
+
+   notifyMsg.className = 'message';
+   notifyMsg.innerHTML = "Клавиатура создана в операционной системе fndows.<br>Для переключения языка комбинация: левыe alt + shift";
+   wrapper.appendChild(notifyMsg);
+};
 createPage(body);
 
 
-window.addEventListener('keydown', function(keys){
-    for(let i = 0; i < keys.length; i++){
-        keys[i].classList.add('active');
-        
+// клавиатуры разных языков
+function keyBoardMake(){
+for (let i = 0; i<keys.length;i++) {
+
+    let keyBtnEng = document.createElement('button');
+    let keyBtnRus = document.createElement('button');
+    let keyBtnEngCaps = document.createElement('button');
+    let keyBtnRusCaps = document.createElement('button');
+
+    keyBtnEng.className='keyboard__key eng ' + keys[i].keyCode;
+    keyBtnEng.innerHTML = keys[i].keyEng.toString();    
+    keyBtnRus.className='keyboard__key rus lang_hidden ' + keys[i].keyCode;
+    keyBtnRus.innerHTML = keys[i].keyRus.toString();
+
+    keyBtnEngCaps.className='keyboard__key eng  eng_caps caps_hidden ' + keys[i].keyCode;
+    keyBtnEngCaps.innerHTML = keys[i].keyEngCaps.toString();    
+    keyBtnRusCaps.className='keyboard__key rus rus_caps caps_hidden ' + keys[i].keyCode;
+    keyBtnRusCaps.innerHTML = keys[i].keyRusCaps.toString();
+
+ if(keyBtnEng.innerHTML == 'ArrowRight' || keyBtnRus.innerHTML == 'ArrowRight'|| keyBtnEngCaps.innerHTML == 'ArrowRight' || keyBtnRusCaps.innerHTML == 'ArrowRight'){
+        keyBtnEng.innerHTML = '►';
+        keyBtnRus.innerHTML = '►';
+        keyBtnEngCaps.innerHTML = '►';
+        keyBtnRusCaps.innerHTML = '►';
+    }else if(keyBtnEng.innerHTML == 'ArrowUp'|| keyBtnRus.innerHTML == 'ArrowUp' || keyBtnEngCaps.innerHTML == 'ArrowUp'|| keyBtnRusCaps.innerHTML == 'ArrowUp'){
+        keyBtnEng.innerHTML = '▲';
+        keyBtnRus.innerHTML = '▲';
+        keyBtnEngCaps.innerHTML = '▲';
+        keyBtnRusCaps.innerHTML = '▲';
+    }else if(keyBtnEng.innerHTML == 'ArrowLeft'||keyBtnRus.innerHTML == 'ArrowLeft' || keyBtnEngCaps.innerHTML == 'ArrowLeft'|| keyBtnRusCaps.innerHTML == 'ArrowLeft'){
+        keyBtnEng.innerHTML = '◄';
+        keyBtnRus.innerHTML = '◄';
+        keyBtnEngCaps.innerHTML = '◄';
+        keyBtnRusCaps.innerHTML = '◄';
+    }else if(keyBtnEng.innerHTML == 'ArrowDown' ||keyBtnRus.innerHTML == 'ArrowDown' || keyBtnEngCaps.innerHTML == 'ArrowDown' ||keyBtnRusCaps.innerHTML == 'ArrowDown'){
+        keyBtnEng.innerHTML = '▼';
+        keyBtnRus.innerHTML = '▼';
+        keyBtnEngCaps.innerHTML = '▼';
+        keyBtnRusCaps.innerHTML = '▼';
+    }else if(keyBtnEng.innerHTML == 'Control'||keyBtnRus.innerHTML == 'Control' || keyBtnEngCaps.innerHTML == 'Control'||keyBtnRusCaps.innerHTML == 'Control'){
+        keyBtnEng.innerHTML = 'Ctrl';
+        keyBtnRus.innerHTML = 'Ctrl';
+        keyBtnEngCaps.innerHTML = 'Ctrl';
+        keyBtnRusCaps.innerHTML = 'Ctrl';
+    }else if(keyBtnEng.innerHTML == 'Meta' || keyBtnRus.innerHTML == 'Meta' || keyBtnEngCaps.innerHTML == 'Meta' || keyBtnRusCaps.innerHTML == 'Meta'){
+        keyBtnEng.innerHTML = 'fn';
+        keyBtnRus.innerHTML = 'fn';
+        keyBtnEngCaps.innerHTML = 'fn';
+        keyBtnRusCaps.innerHTML = 'fn';
     }
-})
 
 
+    keyboardWrapper.appendChild(keyBtnEng);
+    keyboardWrapper.appendChild(keyBtnRus);
+    keyboardWrapper.appendChild(keyBtnEngCaps);
+    keyboardWrapper.appendChild(keyBtnRusCaps);
 
-
-// переключение языка-не работает
-function langSwitch(event){
-    if(event.code == 'Alt' && (event.shiftkey)) {
-       if ( keyboard.classList.contains('eng')){
-        keyboard.classList.remove('eng');
-        keyboard.classList.add('rus');
-       }else{
-        keyboard.classList.remove('rus');
-        keyboard.classList.add('eng');
-       }
-      }
+    if(i==13 || i ==28 || i == 41 || i==54){
+        keyBtnEng = document.createElement('div');
+        keyBtnRus = document.createElement('div');
+        keyBtnEngCaps = document.createElement('div');
+        keyBtnRusCaps = document.createElement('div');
+        keyBtnEng.className='clearfix eng';
+        keyBtnRus.className='clearfix lang_hidden rus';
+        keyBtnEngCaps.className='clearfix eng eng_caps caps_hidden';
+        keyBtnRusCaps.className='clearfix rus rus_caps caps_hidden';
+        keyBtnEng.innerHTML = '';
+        keyBtnRus.innerHTML = '';
+        keyBtnEngCaps.innerHTML = '';
+        keyBtnRusCaps.innerHTML = '';
+        keyboardWrapper.appendChild(keyBtnEng); 
+        keyboardWrapper.appendChild(keyBtnRus);
+        keyboardWrapper.appendChild(keyBtnEngCaps); 
+        keyboardWrapper.appendChild(keyBtnRusCaps); 
+    }
+}
 }
 
-document.addEventListener('keydown', langSwitch);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//     let keyboardKeys =[
-//         {key1: '`', key2: 'ё', keyCode: 'Backquote'},
-//         {key: '1', keyCode: 'Digit1'},
-//         {key: '2', keyCode: 'Digit2'},
-//         {key: '3', keyCode: 'Digit3'},
-//         {key: '4', keyCode: 'Digit4'},
-//         {key: '5', keyCode: 'Digit5'},
-//         {key: '6', keyCode: 'Digit6'},
-//         {key: '7', keyCode: 'Digit7'},
-//         {key: '8', keyCode: 'Digit8'},
-//         {key: '9', keyCode: 'Digit9'},
-//         {key: '0', keyCode: 'Digit0'},
-//         {key: '-', keyCode: 'Minus'},
-//         {key: '=', keyCode: 'Equal'},
-//         {key: 'Backspace', keyCode: 'Backspace'},
-//         {key: 'Tab', keyCode: 'Tab'},
-//         {key: 'q', keyCode: 'KeyQ'},
-//         {key: 'w', keyCode: 'KeyW'},
-//         {key: 'e', keyCode: 'KeyE'},
-//         {key: 'r', keyCode: 'KeyR'},
-//         {key: 't', keyCode: 'KeyT'},
-//         {key: 'y', keyCode: 'KeyY'},
-//         {key: 'u', keyCode: 'KeyU'},
-//         {key: 'i', keyCode: 'KeyI'},
-//         {key: 'o', keyCode: 'KeyO'} ,
-//         {key: 'p', keyCode: 'KeyP'},
-//         {key: '[', keyCode: 'BracketLeft'},
-//         {key: ']', keyCode: 'BracketRight'},
-//         {key: '\\', keyCode: 'Backslash'},
-//         {key: 'CapsLock', keyCode: 'CapsLock'},
-//         {key: 'a', keyCode: 'KeyA'},
-//         {key: 's', keyCode: 'KeyS'},
-//         {key: 'd', keyCode: 'KeyD'},
-//         {key: 'f', keyCode: 'KeyF'},
-//         {key: 'g', keyCode: 'KeyG'},
-//         {key: 'h', keyCode: 'KeyH'},
-//         {key: 'j', keyCode: 'KeyJ'},
-//         {key: 'k', keyCode: 'KeyK'},
-//         {key: 'l', keyCode: 'KeyL'},
-//         {key: ';', keyCode: 'Semicolon'},
-//         {key: "'", keyCode: 'Quote'},
-//         {key: 'Enter', keyCode: 'Enter'},
-//         {key: 'Shift', keyCode: 'ShiftLeft'},
-//         {key: 'z', keyCode: 'KeyZ'},
-//         {key: 'x', keyCode: 'KeyX'},
-//         {key: 'c', keyCode: 'KeyC'},
-//         {key: 'v', keyCode: 'KeyV'},
-//         {key: 'b', keyCode: 'KeyB'} ,
-//         {key: 'n', keyCode: 'KeyN'},
-//         {key: 'm', keyCode: 'KeyM'},
-//         {key: ',', keyCode: 'Comma'},
-//         {key: ',', keyCode: 'Comma'},
-//         {key: '.', keyCode: 'Period'},
-//         {key: '/', keyCode: 'Slash'} ,
-//         {key: 'Shift', keyCode: 'ShiftRight'},
-//         {key: 'Control', keyCode: 'ControlLeft'},
-//         {key: 'Meta', keyCode: 'MetaLeft'},
-//         {key: 'Alt', keyCode: 'AltLeft'},
-//         {key: ' ', keyCode: 'Space'},
-//         {key: 'Alt', keyCode: 'AltRight'},
-//         {key: 'Control', keyCode: 'ControlRight'},
-//         {key: 'ArrowLeft', keyCode: 'ArrowLeft'},
-//         {key: 'ArrowUp', keyCode: 'ArrowUp'},
-//         {key: 'ArrowDown', keyCode: 'ArrowDown'},
-//         {key: 'ArrowRight', keyCode: 'ArrowRight'},
-//         {key: 'ArrowRight', keyCode: 'ArrowRight'},
-//     ] 
-
-//     keyboardKeys.forEach(key =>{
-//         keyboard.appendChild(key);
-//         key.className =key[keyCode];
-//         key.innerHTML = key[key];
-//         console.log(keyboard)
-//     }
+// подсветка нажатой клавиши путем добавления класса active
+function addActive (event){
+    let target = event.target;
+    if(target.classList.contains('keyboard__key')) {
+        document.querySelectorAll('.keyboard__key').forEach(element => element.classList.remove('active'));
+        target.classList.add('active');
+        target.classList.remove('active');
+    }else if(target.classList.contains('.ShiftLeft') || target.classList.contains('ShiftRight')||target.classList.contains('AltLeft')||target.classList.contains('AltRight')){
+        target.classList.toggle('active');
+    }
     
-// )
+};
+
+
+// переключение языка
+function langSwitch (event){
+    let target = event.target;    
+    if(target.textContent == 'Alt' && (document.querySelector('.ShiftLeft').classList.contains('shift_active'))) {
+        document.querySelectorAll('.keyboard__key').forEach((element)=>{
+           if(element.classList.contains('lang_hidden')){
+            element.classList.remove('lang_hidden');
+        }else{
+            element.classList.add('lang_hidden');
+        }
+    }
+    )
+}
+}
+
+// включение/выключение капса
+function capsSwitch(event){
+    let target = event.target;
+    // для англ клавиатуры
+    if((document.querySelector('.keyboard').classList.contains('eng'))){
+        
+        if(document.querySelector('.CapsLock').classList.contains('capslock_active')){
+// спрятать нижний регистр
+            document.querySelectorAll('.keyboard__key.eng').forEach((element)=>{
+                if(element.classList.contains('hidden')){
+                    element.classList.remove('hidden');
+                }else{
+                   element.classList.add('hidden');
+                }
+            }
+            )
+
+            document.querySelectorAll('.clearfix.eng').forEach((element)=>{
+                if(element.classList.contains('hidden')){
+                    element.classList.remove('hidden');
+                }else{
+                   element.classList.add('hidden');
+                }
+            }
+            )
+            
+    // показать верхний регистр
+            document.querySelectorAll('.keyboard__key.eng.eng_caps').forEach((element)=>{
+                
+                if(element.classList.contains('caps_hidden')){
+                 element.classList.remove('caps_hidden');
+             }else{
+                element.classList.add('caps_hidden');
+             }
+             if(element.classList.contains('hidden')){
+                element.classList.remove('hidden');
+            }
+         })
+
+         document.querySelectorAll('.clearfix.eng.eng_caps').forEach((element)=>{
+                
+            if(element.classList.contains('caps_hidden')){
+             element.classList.remove('caps_hidden');
+         }else{
+            element.classList.add('caps_hidden');
+         }
+         if(element.classList.contains('hidden')){
+            element.classList.remove('hidden');
+        }
+     })
+
+    }
+   
+
+
+    }
+
+    // для рус клавиатуры
+    if((document.querySelector('.keyboard').classList.contains('rus'))){
+        
+        if(document.querySelector('.CapsLock').classList.contains('capslock_active')){
+// спрятать нижний регистр
+            document.querySelectorAll('.keyboard__key.rus').forEach((element)=>{
+                if(element.classList.contains('hidden')){
+                    element.classList.remove('hidden');
+                }else{
+                   element.classList.add('hidden');
+                }
+            }
+            )
+
+            document.querySelectorAll('.clearfix.rus').forEach((element)=>{
+                if(element.classList.contains('hidden')){
+                    element.classList.remove('hidden');
+                }else{
+                   element.classList.add('hidden');
+                }
+            }
+            )
+            
+    // показать верхний регистр
+            document.querySelectorAll('.keyboard__key.rus.rus_caps').forEach((element)=>{
+                
+                if(element.classList.contains('caps_hidden')){
+                 element.classList.remove('caps_hidden');
+             }else{
+                element.classList.add('caps_hidden');
+             }
+             if(element.classList.contains('hidden')){
+                element.classList.remove('hidden');
+            }
+         })
+
+         document.querySelectorAll('.clearfix.rus.rus_caps').forEach((element)=>{
+                
+            if(element.classList.contains('caps_hidden')){
+             element.classList.remove('caps_hidden');
+         }else{
+            element.classList.add('caps_hidden');
+         }
+         if(element.classList.contains('hidden')){
+            element.classList.remove('hidden');
+        }
+     })
+
+    }
+   
+
+
+    }
+}
+
+document.addEventListener('click', capsSwitch);
+// печать текста
+function addText(event){
+    let target = event.target;
+    let capslock = false;
+    let shiftkey = false;
+    let Alt = false;
+
+    if(target.textContent != 'Backspace' && target.textContent !== 'CapsLock' && target.textContent !== 'Tab' && target.textContent !== 'Enter' && target.textContent !== 'Shift' && target.textContent !== 'Alt'&& target.textContent !== 'Ctrl'){
+        if(document.querySelector('.CapsLock').classList.contains('capslock_active')) {    
+
+            textArea.value += target.textContent.toUpperCase();
+        }else{
+            textArea.value += target.textContent;
+        }
+
+    }else if(target.textContent === 'Backspace'){
+
+        textArea.value = textArea.value.substring(0, textArea.value.length - 1);
+
+    }else if(target.textContent === 'Shift'){
+        
+        if(target.classList.contains('shift_active')){
+
+            target.classList.remove('shift_active') 
+
+             }else{
+
+                target.classList.add('shift_active')
+
+             }        
+    }else if(target.textContent === 'CapsLock'){
+
+        if(target.classList.contains('capslock_active')){
+
+            target.classList.remove('capslock_active')
+
+        }else{
+
+            target.classList.add('capslock_active')
+
+        }
+    }else if(target.textContent === 'Tab'){
+
+        textArea.value += '    ';
+
+    }else if(target.textContent === 'Enter'){
+
+        textArea.value += '\n';
+
+    }
+    
+};
 
 
 
-// }
-// createKeyboard(body);
- 
-// let keysRus=[];
-// document.onkeydown = function(event){
-//     keysRus.push({key: event.key, keyCode: event.code})
-//     console.log(keysRus);
+keyboard.addEventListener('click', addText);
+keyboard.addEventListener('click', langSwitch);
+keyboard.addEventListener('click', addActive);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // if(keyboard.classList.contains('eng')){
+    // //если англ раскладка
+    // for(let i = 0; i<keys.length;i++){
+
+    // let keyBtn = document.createElement('button');
+    // keyBtn.className='keyboard__key ' + keys[i].keyCode;
+    // keyBtn.innerHTML = keys[i].keyEng.toString();
+    
+    // if(keyBtn.innerHTML == 'ArrowRight'){
+    //     keyBtn.innerHTML = '►';
+    // }else if(keyBtn.innerHTML == 'ArrowUp'){
+    //     keyBtn.innerHTML = '▲';
+    // }else if(keyBtn.innerHTML == 'ArrowLeft'){
+    //     keyBtn.innerHTML = '◄';
+    // }else if(keyBtn.innerHTML == 'ArrowDown'){
+    //     keyBtn.innerHTML = '▼';
+    // }else if(keyBtn.innerHTML == 'Control'){
+    //     keyBtn.innerHTML = 'Ctrl';
+    // }else if(keyBtn.innerHTML == 'Meta'){
+    //     keyBtn.innerHTML = 'fn';
+    // }
+    // keyboardWrapper.appendChild(keyBtn);
+
+
+    // if(i==13 || i ==28 || i == 41 || i==54){
+    //     keyBtn = document.createElement('div');
+    //     keyBtn.className='clearfix';
+    //     keyBtn.innerHTML = '';
+    //     keyboardWrapper.appendChild(keyBtn); 
+    // }
+
+    
+    // } //если русская раскладка
+    // }else if(keyboard.classList.contains('rus')){
+    //     for(let i = 0; i<keys.length;i++){
+
+    //         let keyBtn = document.createElement('div');
+    //         keyBtn.className='keyboard__key ' + keys[i].keyCode;
+    //         keyBtn.innerHTML = keys[i].keyRus.toString();
+    //         if(keyBtn.innerHTML == 'ArrowRight'){
+    //             keyBtn.innerHTML = '►';
+    //         }else if(keyBtn.innerHTML == 'ArrowUp'){
+    //             keyBtn.innerHTML = '▲';
+    //         }else if(keyBtn.innerHTML == 'ArrowLeft'){
+    //             keyBtn.innerHTML = '◄';
+    //         }else if(keyBtn.innerHTML == 'ArrowDown'){
+    //             keyBtn.innerHTML = '▼';
+    //         }else if(keyBtn.innerHTML == 'Control'){
+    //             keyBtn.innerHTML = 'Ctrl';
+    //         }else if(keyBtn.innerHTML == 'Meta'){
+    //             keyBtn.innerHTML = 'fn';
+    //         }
+    //         keyboardWrapper.appendChild(keyBtn);
+        
+        
+    //         if(i==13 || i ==28 || i == 41 || i==54){
+    //             keyBtn = document.createElement('div');
+    //             keyBtn.className='clearfix';
+    //             keyBtn.innerHTML = '';
+    //             keyboardWrapper.appendChild(keyBtn); 
+    //         }
+        
+            
+    //         }
+    // }
+
+
+
+        //    if ( keyboard.classList.contains('eng')){
+    //     keyboard.classList.remove('eng');
+    //     keyboard.classList.add('rus');
+    //    }else{
+    //     keyboard.classList.remove('rus');
+    //     keyboard.classList.add('eng');
+    //    }
+//       }
 // }
