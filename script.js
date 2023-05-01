@@ -338,7 +338,7 @@ function addText(event){
     let shiftkey = false;
     let Alt = false;
 
-    if(target.textContent != 'Backspace' && target.textContent !== 'CapsLock' && target.textContent !== 'Tab' && target.textContent !== 'Enter' && target.textContent !== 'Shift' && target.textContent !== 'Alt'&& target.textContent !== 'Ctrl'){
+    if(target.textContent != 'Backspace' && target.textContent !== 'CapsLock' && target.textContent !== 'Tab' && target.textContent !== 'Enter' && target.textContent !== 'Shift' && target.textContent !== 'Alt'&& target.textContent !== 'Ctrl' && target.textContent !== 'Del'){
         if(document.querySelector('.CapsLock').classList.contains('capslock_active')) {    
 
             textArea.value += target.textContent.toUpperCase();
@@ -389,99 +389,3 @@ function addText(event){
 keyboard.addEventListener('click', addText);
 keyboard.addEventListener('click', langSwitch);
 keyboard.addEventListener('click', addActive);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // if(keyboard.classList.contains('eng')){
-    // //если англ раскладка
-    // for(let i = 0; i<keys.length;i++){
-
-    // let keyBtn = document.createElement('button');
-    // keyBtn.className='keyboard__key ' + keys[i].keyCode;
-    // keyBtn.innerHTML = keys[i].keyEng.toString();
-    
-    // if(keyBtn.innerHTML == 'ArrowRight'){
-    //     keyBtn.innerHTML = '►';
-    // }else if(keyBtn.innerHTML == 'ArrowUp'){
-    //     keyBtn.innerHTML = '▲';
-    // }else if(keyBtn.innerHTML == 'ArrowLeft'){
-    //     keyBtn.innerHTML = '◄';
-    // }else if(keyBtn.innerHTML == 'ArrowDown'){
-    //     keyBtn.innerHTML = '▼';
-    // }else if(keyBtn.innerHTML == 'Control'){
-    //     keyBtn.innerHTML = 'Ctrl';
-    // }else if(keyBtn.innerHTML == 'Meta'){
-    //     keyBtn.innerHTML = 'fn';
-    // }
-    // keyboardWrapper.appendChild(keyBtn);
-
-
-    // if(i==13 || i ==28 || i == 41 || i==54){
-    //     keyBtn = document.createElement('div');
-    //     keyBtn.className='clearfix';
-    //     keyBtn.innerHTML = '';
-    //     keyboardWrapper.appendChild(keyBtn); 
-    // }
-
-    
-    // } //если русская раскладка
-    // }else if(keyboard.classList.contains('rus')){
-    //     for(let i = 0; i<keys.length;i++){
-
-    //         let keyBtn = document.createElement('div');
-    //         keyBtn.className='keyboard__key ' + keys[i].keyCode;
-    //         keyBtn.innerHTML = keys[i].keyRus.toString();
-    //         if(keyBtn.innerHTML == 'ArrowRight'){
-    //             keyBtn.innerHTML = '►';
-    //         }else if(keyBtn.innerHTML == 'ArrowUp'){
-    //             keyBtn.innerHTML = '▲';
-    //         }else if(keyBtn.innerHTML == 'ArrowLeft'){
-    //             keyBtn.innerHTML = '◄';
-    //         }else if(keyBtn.innerHTML == 'ArrowDown'){
-    //             keyBtn.innerHTML = '▼';
-    //         }else if(keyBtn.innerHTML == 'Control'){
-    //             keyBtn.innerHTML = 'Ctrl';
-    //         }else if(keyBtn.innerHTML == 'Meta'){
-    //             keyBtn.innerHTML = 'fn';
-    //         }
-    //         keyboardWrapper.appendChild(keyBtn);
-        
-        
-    //         if(i==13 || i ==28 || i == 41 || i==54){
-    //             keyBtn = document.createElement('div');
-    //             keyBtn.className='clearfix';
-    //             keyBtn.innerHTML = '';
-    //             keyboardWrapper.appendChild(keyBtn); 
-    //         }
-        
-            
-    //         }
-    // }
-
-
-
-        //    if ( keyboard.classList.contains('eng')){
-    //     keyboard.classList.remove('eng');
-    //     keyboard.classList.add('rus');
-    //    }else{
-    //     keyboard.classList.remove('rus');
-    //     keyboard.classList.add('eng');
-    //    }
-//       }
-// }
