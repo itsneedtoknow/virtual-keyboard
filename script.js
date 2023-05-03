@@ -434,17 +434,17 @@ document.addEventListener('keydown', function(e) {
         };
 
    }else if(e.code == 'CapsLock'){
-        if(document.querySelector('.CapsLock').classList.contains('capslock_active')){
+    if(document.querySelector('.keyboard').classList.contains('eng')){ if(document.querySelector('.CapsLock').classList.contains('capslock_active')){
 
-            elem.classList.remove('capslock_active');
+            document.querySelector('.CapsLock').classList.remove('capslock_active');
 
             document.querySelectorAll('.eng_caps').forEach((element)=>
-            element.classList.add('hidden'))
+            element.classList.add('hidden'));
 
             document.querySelectorAll('.eng_lower').forEach((element)=>
             element.classList.remove('hidden'))
         }else{
-            elem.classList.add('capslock_active');
+            document.querySelector('.CapsLock').classList.add('capslock_active');
 
             document.querySelectorAll('.eng_caps').forEach((element)=>
             element.classList.remove('hidden'))
@@ -453,49 +453,28 @@ document.addEventListener('keydown', function(e) {
             element.classList.add('hidden'))
 
         }
-        
-        
+    }else if(document.querySelector('.keyboard').classList.contains('rus')){ 
+        if(document.querySelector('.CapsLock').classList.contains('capslock_active')){
 
-        if(document.querySelector('.keyboard').classList.contains('eng')){
-        
-            if(elem.classList.contains('capslock_active')){
-    //нижний регистр
-                document.querySelectorAll('.eng_lower').forEach((element)=>{
-                    
-                    if(element.classList.contains('hidden')){
-                        element.classList.remove('hidden');
-                    }else{
-                       element.classList.add('hidden');
-                    }
-                });
-                //нижний регистр
-                
-        }
-        }
-    
-        // для рус клавиатуры
-        if(document.querySelector('.keyboard').classList.contains('rus')){
-            
-            if(elem.classList.contains('capslock_active')){
-    
-                document.querySelectorAll('.rus_lower').forEach((element)=>{
-                    
-                    if(element.classList.contains('hidden')){
-                        element.classList.remove('hidden');
-                    }else{
-                       element.classList.add('hidden');
-                    }
-                });
-                //нижний регистр
-                document.querySelectorAll('.rus_caps').forEach((element)=>{
-                    if(element.classList.contains('hidden')){
-                        element.classList.remove('hidden');
-                    }else{
-                       element.classList.add('hidden');
-                    }
-                });
-    
-    }}
+        document.querySelector('.CapsLock').classList.remove('capslock_active');
+
+        document.querySelectorAll('.rus_caps').forEach((element)=>
+        element.classList.add('hidden'));
+
+        document.querySelectorAll('.rus_lower').forEach((element)=>
+        element.classList.remove('hidden'))
+    }else{
+        document.querySelector('.CapsLock').classList.add('capslock_active');
+
+        document.querySelectorAll('.rus_caps').forEach((element)=>
+        element.classList.remove('hidden'))
+
+        document.querySelectorAll('.rus_lower').forEach((element)=>
+        element.classList.add('hidden'))
+
+    }
+}
+
     elem.classList.add('active');
     }
     
