@@ -399,59 +399,20 @@ keyboard.addEventListener('click', addActive);
 document.addEventListener('keydown', function(e) {
     const elem = document.getElementsByClassName(e.code)[0];
     elem.classList.add('active');
-    
-    // if (e.shiftKey && e.ctrlKey) {
-    //     elem.classList.add('active');
-    //     variationLang();
-    //     return false;
-    //   }
-    //   switch (e.code) {
-    //     case 'MetaLeft':
-    //         elem.classList.add('active')
-    //       break;
-    //     case 'Tab':
-    //       elem.classList.add('active')
-    //       outputPanel.value += '   ';
-    //       break;
-    //     case 'Enter':
-    //     elem.classList.add('active')
-    //       outputPanel.value += '\n';
-    //       break;
-    //     case 'CapsLock':
-    //         if (capslock) {
-    //             elem.classList.remove('active');
-    //             capslock = false;
-    //         } else {
-    //             elem.classList.add('active')
-    //             capslock = true;
-    //             variationCase();
-    //         }
-    //     case 'Backspace':
-    //       outputPanel.value = outputPanel.value.substr(0, outputPanel.value.length - 1);
-    //       elem.classList.add('active')
-    //       break;
-    //     case 'Delete':
-    //       elem.classList.add('active')
-    //       break;
-    //     case 'AltLeft':
-    //     case 'AltRight':
-    //       elem.classList.add('active')
-    //       break;
-    //     case 'ShiftLeft':
-    //     case 'ShiftRight':
-    //         e.preventDefault();
-    //         elem.classList.add('active')
-    //         variationCase();
-    //         break;
-    //     case 'ControlLeft':
-    //     case 'ControlRight':
-    //       elem.classList.add('active')
-    //       break;
-    //     default:
-    //       elem.classList.add('active')
-    //       outputPanel.value += elem.querySelectorAll(':not(.hidden)')[1].textContent;
-    //       break;
-    //   }
+    if(e.code == 'AltLeft' && (document.querySelector('.ShiftLeft').classList.contains('active'))) {
+        document.querySelectorAll('.keyboard__key').forEach((element)=>{
+           if(element.classList.contains('lang_hidden')){
+            element.classList.remove('lang_hidden');
+        }else{
+            element.classList.add('lang_hidden');
+        }
+    }
+    )
+}
+
+
+
+
     }, 100);
 
     document.addEventListener('keyup', function(e) {
