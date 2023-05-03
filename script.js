@@ -105,7 +105,7 @@ function createPage() {
     keyBoardMake();
 
    notifyMsg.className = 'message';
-   notifyMsg.innerHTML = "Клавиатура создана в операционной системе fndows.<br>Для переключения языка комбинация: левыe alt + shift";
+   notifyMsg.innerHTML = "Клавиатура создана в операционной системе fndows.<br>Для переключения языка комбинация: левыe shift + alt";
    wrapper.appendChild(notifyMsg);
 };
 createPage(body);
@@ -389,3 +389,71 @@ function addText(event){
 keyboard.addEventListener('click', addText);
 keyboard.addEventListener('click', langSwitch);
 keyboard.addEventListener('click', addActive);
+
+
+
+
+
+
+
+document.addEventListener('keydown', function(e) {
+    const elem = document.getElementsByClassName(e.code)[0];
+    elem.classList.add('active');
+    
+    // if (e.shiftKey && e.ctrlKey) {
+    //     elem.classList.add('active');
+    //     variationLang();
+    //     return false;
+    //   }
+    //   switch (e.code) {
+    //     case 'MetaLeft':
+    //         elem.classList.add('active')
+    //       break;
+    //     case 'Tab':
+    //       elem.classList.add('active')
+    //       outputPanel.value += '   ';
+    //       break;
+    //     case 'Enter':
+    //     elem.classList.add('active')
+    //       outputPanel.value += '\n';
+    //       break;
+    //     case 'CapsLock':
+    //         if (capslock) {
+    //             elem.classList.remove('active');
+    //             capslock = false;
+    //         } else {
+    //             elem.classList.add('active')
+    //             capslock = true;
+    //             variationCase();
+    //         }
+    //     case 'Backspace':
+    //       outputPanel.value = outputPanel.value.substr(0, outputPanel.value.length - 1);
+    //       elem.classList.add('active')
+    //       break;
+    //     case 'Delete':
+    //       elem.classList.add('active')
+    //       break;
+    //     case 'AltLeft':
+    //     case 'AltRight':
+    //       elem.classList.add('active')
+    //       break;
+    //     case 'ShiftLeft':
+    //     case 'ShiftRight':
+    //         e.preventDefault();
+    //         elem.classList.add('active')
+    //         variationCase();
+    //         break;
+    //     case 'ControlLeft':
+    //     case 'ControlRight':
+    //       elem.classList.add('active')
+    //       break;
+    //     default:
+    //       elem.classList.add('active')
+    //       outputPanel.value += elem.querySelectorAll(':not(.hidden)')[1].textContent;
+    //       break;
+    //   }
+    }, 100);
+
+    document.addEventListener('keyup', function(e) {
+        const elem = document.getElementsByClassName(e.code)[0];
+        elem.classList.remove('active');})
