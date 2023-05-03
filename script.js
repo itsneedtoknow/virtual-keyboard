@@ -220,7 +220,7 @@ function langSwitch (event){
 
 // включение/выключение капса
 function capsSwitch(event){
-    let target = event.target;
+    // let target = event.target;
     // для англ клавиатуры
     if((document.querySelector('.keyboard').classList.contains('eng'))){
         
@@ -399,6 +399,8 @@ keyboard.addEventListener('click', addActive);
 document.addEventListener('keydown', function(e) {
     const elem = document.getElementsByClassName(e.code)[0];
     elem.classList.add('active');
+    console.log(e.code);
+
     if(e.code == 'AltLeft' && (document.querySelector('.ShiftLeft').classList.contains('active'))) {
         document.querySelectorAll('.keyboard__key').forEach((element)=>{
            if(element.classList.contains('lang_hidden')){
@@ -408,6 +410,13 @@ document.addEventListener('keydown', function(e) {
         }
     }
     )
+}else if(e.code == 'CapsLock'){
+    if(document.querySelector('.CapsLock').classList.contains('capslock_active')){
+        elem.classList.remove('capslock_active');
+    }else{
+        elem.classList.add('capslock_active');
+    }
+    capsSwitch();
 }
 
 
@@ -417,4 +426,13 @@ document.addEventListener('keydown', function(e) {
 
     document.addEventListener('keyup', function(e) {
         const elem = document.getElementsByClassName(e.code)[0];
-        elem.classList.remove('active');})
+        elem.classList.remove('active');
+    
+        
+    
+    
+    }
+        
+        
+        
+        )
