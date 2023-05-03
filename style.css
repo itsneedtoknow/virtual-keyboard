@@ -58,12 +58,7 @@ width: 1200px;
     transition: 0.2s;
     
 }
-.keyboard__key.active{
-    background-color: var(--key-click);
-    color: #222222;
-    transition: 0.2s;
-    
-}
+
 .keyboard__key{
     width: 40px;
     height: 40px;
@@ -79,7 +74,12 @@ width: 1200px;
     cursor: pointer;
     transition: 0.2s;
 }
-
+.keyboard__key.active{
+    background-color: var(--key-click);
+    color: #222222;
+    transition: 0.2s;
+    
+}
 .upper-case,
 .caps,
 .shift-caps,
@@ -114,6 +114,7 @@ width: 1200px;
 }
 .hidden,
 .caps_hidden,
+.lower_hidden,
 .lang_hidden{
     display: none;
 }
