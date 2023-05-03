@@ -1,4 +1,4 @@
-const body = document.querySelector('.body'); 
+const body = document.querySelector('body'); 
 let wrapper = document.createElement('div');
 header = document.createElement('h1');
 textArea = document.createElement('textarea');
@@ -7,8 +7,8 @@ keyboardWrapper = document.createElement('div');
 // массив букв
 keys =[
     {keyEng: '`', keyEngCaps: '`', keyRus: 'ё', keyRusCaps: 'Ё', keyCode: 'Backquote'},
-    {keyEng: '1', keyEngCaps: '1', keyRus: '1', keyRusCaps: '2', keyCode: 'Digit1'},
-    {keyEng: '2', keyEngCaps: '2', keyRus: '2', keyRusCaps: '1', keyCode: 'Digit2'},    
+    {keyEng: '1', keyEngCaps: '1', keyRus: '1', keyRusCaps: '1', keyCode: 'Digit1'},
+    {keyEng: '2', keyEngCaps: '2', keyRus: '2', keyRusCaps: '2', keyCode: 'Digit2'},    
     {keyEng: '3', keyEngCaps: '3', keyRus: '3', keyRusCaps: '3', keyCode: 'Digit3'},
     {keyEng: '4', keyEngCaps: '4', keyRus: '4', keyRusCaps: '4', keyCode: 'Digit4'},
     {keyEng: '5', keyEngCaps: '5', keyRus: '5', keyRusCaps: '5', keyCode: 'Digit5'},
@@ -77,9 +77,9 @@ notifyMsg = document.createElement('p');
 
 // создать клавиатуру и поле ввода
 function createPage() {
-
+    
     // wrapper
-        wrapper.className = 'fndow-wrapper';
+        wrapper.className = 'window-wrapper';
         body.appendChild(wrapper);
 
     // header
@@ -108,7 +108,7 @@ function createPage() {
    notifyMsg.innerHTML = "Клавиатура создана в операционной системе fndows.<br>Для переключения языка комбинация: левыe shift + alt";
    wrapper.appendChild(notifyMsg);
 };
-createPage(body);
+createPage();
 
 
 // клавиатуры разных языков
@@ -120,14 +120,14 @@ for (let i = 0; i<keys.length;i++) {
     let keyBtnEngCaps = document.createElement('button');
     let keyBtnRusCaps = document.createElement('button');
 
-    keyBtnEng.className='keyboard__key eng lang_hidden ' + keys[i].keyCode;
+    keyBtnEng.className='keyboard__key eng eng_lower lang_hidden ' + keys[i].keyCode;
     keyBtnEng.innerHTML = keys[i].keyEng.toString();    
-    keyBtnRus.className='keyboard__key rus ' + keys[i].keyCode;
+    keyBtnRus.className='keyboard__key rus_lower rus ' + keys[i].keyCode;
     keyBtnRus.innerHTML = keys[i].keyRus.toString();
 
-    keyBtnEngCaps.className='keyboard__key eng  eng_caps caps_hidden ' + keys[i].keyCode;
+    keyBtnEngCaps.className='keyboard__key eng eng_caps hidden lang_hidden ' + keys[i].keyCode;
     keyBtnEngCaps.innerHTML = keys[i].keyEngCaps.toString();    
-    keyBtnRusCaps.className='keyboard__key rus rus_caps caps_hidden ' + keys[i].keyCode;
+    keyBtnRusCaps.className='keyboard__key rus rus_caps hidden ' + keys[i].keyCode;
     keyBtnRusCaps.innerHTML = keys[i].keyRusCaps.toString();
 
  if(keyBtnEng.innerHTML == 'ArrowRight' || keyBtnRus.innerHTML == 'ArrowRight'|| keyBtnEngCaps.innerHTML == 'ArrowRight' || keyBtnRusCaps.innerHTML == 'ArrowRight'){
@@ -173,10 +173,10 @@ for (let i = 0; i<keys.length;i++) {
         keyBtnRus = document.createElement('div');
         keyBtnEngCaps = document.createElement('div');
         keyBtnRusCaps = document.createElement('div');
-        keyBtnEng.className='clearfix lang_hidden eng';
-        keyBtnRus.className='clearfix rus';
-        keyBtnEngCaps.className='clearfix eng eng_caps caps_hidden';
-        keyBtnRusCaps.className='clearfix rus rus_caps caps_hidden';
+        keyBtnEng.className='clearfix lang_hidden eng_lower eng';
+        keyBtnRus.className='clearfix rus_lower rus';
+        keyBtnEngCaps.className='clearfix eng eng_caps lang_hidden hidden';
+        keyBtnRusCaps.className='clearfix rus rus_caps hidden';
         keyBtnEng.innerHTML = '';
         keyBtnRus.innerHTML = '';
         keyBtnEngCaps.innerHTML = '';
@@ -196,166 +196,157 @@ function addActive (event){
         document.querySelectorAll('.keyboard__key').forEach(element => element.classList.remove('active'));
         target.classList.add('active');
         target.classList.remove('active');
-    }else if(target.classList.contains('.ShiftLeft') || target.classList.contains('ShiftRight')||target.classList.contains('AltLeft')||target.classList.contains('AltRight')){
-        target.classList.toggle('active');
     }
+    // else if(target.classList.contains('.ShiftLeft') || target.classList.contains('ShiftRight')||target.classList.contains('AltLeft')||target.classList.contains('AltRight')){
+    //     target.classList.toggle('active');
+    // }
     
 };
 
 
 // переключение языка
 function langSwitch (event){
-    let target = event.target;    
+    let target = event.target;
+    console.log(document.querySelector('.ShiftLeft').classList)
     if(target.textContent == 'Alt' && (document.querySelector('.ShiftLeft').classList.contains('shift_active'))) {
+        
 
-        if(document.querySelector('.keyboard').contains('rus')){
+        if(keyboard.classList.contains('rus')){
+            keyboard.classList.remove('rus');
             document.querySelectorAll('.keyboard__key.rus').forEach((element)=>{
-                element.classList.add('hidden');
-            })
+                element.classList.add('lang_hidden');
+            });
+            keyboard.classList.add('eng');
             document.querySelectorAll('.keyboard__key.eng').forEach((element)=>{
-                element.classList.remove('hidden');
+                element.classList.remove('lang_hidden');
             })
         }else{
+            keyboard.classList.remove('eng');
             document.querySelectorAll('.keyboard__key.eng').forEach((element)=>{
-                element.classList.add('hidden');
+                element.classList.add('lang_hidden');
             })
+            keyboard.classList.add('rus');
             document.querySelectorAll('.keyboard__key.rus').forEach((element)=>{
-                element.classList.remove('hidden');
+                element.classList.remove('lang_hidden');
             })
         }
-        // document.querySelectorAll('.keyboard__key').forEach((element)=>{
+    }
+
+    //     document.querySelectorAll('.keyboard__key').forEach((element)=>{
             
 
 
-           //if(element.classList.contains('lang_hidden')){
-            //element.classList.remove('lang_hidden');
-        //}else{
-            //element.classList.add('lang_hidden');
-        //}
+    //        if(element.classList.contains('lang_hidden')){
+    //         element.classList.remove('lang_hidden');
+    //     }else{
+    //         element.classList.add('lang_hidden');
+    //     }
     // }
     // )
 }
-}
+
+// document.addEventListener('keydown', function(e){
+//     const elem = document.getElementsByClassName(e.code)[0];
+// console.log(elem);
+// console.log(keyboard)
+// console.log(elem.textContent);
+
+//     if((elem.textContent == 'Alt' && document.querySelector('.ShiftLeft').classList.contains('active'))) {
+        
+       
+//             if(keyboard.classList.contains('rus')){
+//                 keyboard.classList.remove('rus');
+//                 keyboard.classList.add('eng');
+//             }else{
+//                 keyboard.classList.remove('eng');
+//                 keyboard.classList.add('rus');
+//             }
+
+//         }
+
+        
+
+
+//         if(keyboard.classList.contains('rus')){
+//             document.querySelectorAll('.keyboard__key.rus').forEach((element)=>{
+//                 element.classList.add('lang_hidden');
+//             })
+//             document.querySelectorAll('.keyboard__key.eng').forEach((element)=>{
+//                 element.classList.remove('lang_hidden');
+//             })
+//         }else{
+//             document.querySelectorAll('.keyboard__key.eng').forEach((element)=>{
+//                 element.classList.add('lang_hidden');
+//             })
+//             document.querySelectorAll('.keyboard__key.rus').forEach((element)=>{
+//                 element.classList.remove('lang_hidden');
+//             })
+//         }}
+
+// )
+;
 
 // включение/выключение капса
-function capsSwitch(event){
-    // let target = event.target;
+document.addEventListener('click', function (event){
+    let target = event.target;
+    
     // для англ клавиатуры
     if((document.querySelector('.keyboard').classList.contains('eng'))){
         
         if(document.querySelector('.CapsLock').classList.contains('capslock_active')){
-// спрятать нижний регистр
-            document.querySelectorAll('.keyboard__key.eng').forEach((element)=>{
+//нижний регистр
+            document.querySelectorAll('.eng_lower').forEach((element)=>{
+                
                 if(element.classList.contains('hidden')){
                     element.classList.remove('hidden');
                 }else{
                    element.classList.add('hidden');
                 }
-            }
-            )
-
-            document.querySelectorAll('.clearfix.eng').forEach((element)=>{
+            });
+            //нижний регистр
+            document.querySelectorAll('.eng_caps').forEach((element)=>{
                 if(element.classList.contains('hidden')){
                     element.classList.remove('hidden');
                 }else{
                    element.classList.add('hidden');
                 }
-            }
-            )
-            
-    // показать верхний регистр
-            document.querySelectorAll('.keyboard__key.eng.eng_caps').forEach((element)=>{
-                
-                if(element.classList.contains('caps_hidden')){
-                 element.classList.remove('caps_hidden');
-             }else{
-                element.classList.add('caps_hidden');
-             }
-             if(element.classList.contains('hidden')){
-                element.classList.remove('hidden');
-            }
-         })
-
-         document.querySelectorAll('.clearfix.eng.eng_caps').forEach((element)=>{
-                
-            if(element.classList.contains('caps_hidden')){
-             element.classList.remove('caps_hidden');
-         }else{
-            element.classList.add('caps_hidden');
-         }
-         if(element.classList.contains('hidden')){
-            element.classList.remove('hidden');
-        }
-     })
-
+            });
     }
-   
-
-
     }
-
     // для рус клавиатуры
     if((document.querySelector('.keyboard').classList.contains('rus'))){
         
         if(document.querySelector('.CapsLock').classList.contains('capslock_active')){
-// спрятать нижний регистр
-            document.querySelectorAll('.keyboard__key.rus').forEach((element)=>{
+
+            document.querySelectorAll('.rus_lower').forEach((element)=>{
+                
                 if(element.classList.contains('hidden')){
                     element.classList.remove('hidden');
                 }else{
                    element.classList.add('hidden');
                 }
-            }
-            )
-
-            document.querySelectorAll('.clearfix.rus').forEach((element)=>{
+            });
+            //нижний регистр
+            document.querySelectorAll('.rus_caps').forEach((element)=>{
                 if(element.classList.contains('hidden')){
                     element.classList.remove('hidden');
                 }else{
                    element.classList.add('hidden');
                 }
-            }
-            )
-            
-    // показать верхний регистр
-            document.querySelectorAll('.keyboard__key.rus.rus_caps').forEach((element)=>{
-                
-                if(element.classList.contains('caps_hidden')){
-                 element.classList.remove('caps_hidden');
-             }else{
-                element.classList.add('caps_hidden');
-             }
-             if(element.classList.contains('hidden')){
-                element.classList.remove('hidden');
-            }
-         })
-
-         document.querySelectorAll('.clearfix.rus.rus_caps').forEach((element)=>{
-                
-            if(element.classList.contains('caps_hidden')){
-             element.classList.remove('caps_hidden');
-         }else{
-            element.classList.add('caps_hidden');
-         }
-         if(element.classList.contains('hidden')){
-            element.classList.remove('hidden');
-        }
-     })
-
+            });
     }
-   
-
-
     }
-}
+})
 
-document.addEventListener('click', capsSwitch);
+document.addEventListener('keydown', function(e){
+    const elem = document.getElementsByClassName(e.code)[0];
+    
+
+})
+
 // печать текста
 function addText(event){
     let target = event.target;
-    let capslock = false;
-    let shiftkey = false;
-    let Alt = false;
 
     if(target.textContent != 'Backspace' && target.textContent !== 'CapsLock' && target.textContent !== 'Tab' && target.textContent !== 'Enter' && target.textContent !== 'Shift' && target.textContent !== 'Alt'&& target.textContent !== 'Ctrl' && target.textContent !== 'Del'){
         if(document.querySelector('.CapsLock').classList.contains('capslock_active')) {    
@@ -405,10 +396,6 @@ function addText(event){
 
 
 
-keyboard.addEventListener('click', addText);
-keyboard.addEventListener('click', langSwitch);
-keyboard.addEventListener('click', addActive);
-
 
 
 
@@ -418,31 +405,102 @@ keyboard.addEventListener('click', addActive);
 document.addEventListener('keydown', function(e) {
     textArea.focus();
     const elem = document.getElementsByClassName(e.code)[0];
+    
     elem.classList.add('active');
     
 
-    if(e.code == 'AltLeft' && (document.querySelector('.ShiftLeft').classList.contains('active'))) {
-        document.querySelectorAll('.keyboard__key').forEach((element)=>{
-           if(element.classList.contains('lang_hidden')){
-            element.classList.remove('lang_hidden');
+    if((elem.textContent == 'Alt' && document.querySelector('.ShiftLeft').classList.contains('active'))) {
+        
+       
+        if(keyboard.classList.contains('rus')){
+            
+            keyboard.classList.remove('rus');
+            document.querySelectorAll('.keyboard__key.rus').forEach((element)=>{
+                element.classList.add('lang_hidden');
+            })
+            keyboard.classList.add('eng');
+            document.querySelectorAll('.keyboard__key.eng').forEach((element)=>{
+                element.classList.remove('lang_hidden');
+            })
         }else{
-            element.classList.add('lang_hidden');
+            keyboard.classList.remove('eng');
+            document.querySelectorAll('.keyboard__key.eng').forEach((element)=>{
+                element.classList.add('lang_hidden');
+            })
+            keyboard.classList.add('rus');
+            document.querySelectorAll('.keyboard__key.rus').forEach((element)=>{
+                element.classList.remove('lang_hidden');
+            })
+        };
+
+   }else if(e.code == 'CapsLock'){
+        if(document.querySelector('.CapsLock').classList.contains('capslock_active')){
+
+            elem.classList.remove('capslock_active');
+
+            document.querySelectorAll('.eng_caps').forEach((element)=>
+            element.classList.add('hidden'))
+
+            document.querySelectorAll('.eng_lower').forEach((element)=>
+            element.classList.remove('hidden'))
+        }else{
+            elem.classList.add('capslock_active');
+
+            document.querySelectorAll('.eng_caps').forEach((element)=>
+            element.classList.remove('hidden'))
+
+            document.querySelectorAll('.eng_lower').forEach((element)=>
+            element.classList.add('hidden'))
+
         }
+        
+        
+
+        if(document.querySelector('.keyboard').classList.contains('eng')){
+        
+            if(elem.classList.contains('capslock_active')){
+    //нижний регистр
+                document.querySelectorAll('.eng_lower').forEach((element)=>{
+                    
+                    if(element.classList.contains('hidden')){
+                        element.classList.remove('hidden');
+                    }else{
+                       element.classList.add('hidden');
+                    }
+                });
+                //нижний регистр
+                
+        }
+        }
+    
+        // для рус клавиатуры
+        if(document.querySelector('.keyboard').classList.contains('rus')){
+            
+            if(elem.classList.contains('capslock_active')){
+    
+                document.querySelectorAll('.rus_lower').forEach((element)=>{
+                    
+                    if(element.classList.contains('hidden')){
+                        element.classList.remove('hidden');
+                    }else{
+                       element.classList.add('hidden');
+                    }
+                });
+                //нижний регистр
+                document.querySelectorAll('.rus_caps').forEach((element)=>{
+                    if(element.classList.contains('hidden')){
+                        element.classList.remove('hidden');
+                    }else{
+                       element.classList.add('hidden');
+                    }
+                });
+    
+    }}
+    elem.classList.add('active');
     }
-    )
-}else if(e.code == 'CapsLock'){
-    if(document.querySelector('.CapsLock').classList.contains('capslock_active')){
-        elem.classList.remove('capslock_active');
-    }else{
-        elem.classList.add('capslock_active');
-    }
-    capsSwitch();
-}
+    
+})
 
-
-
-
-    }, 100);
 
     document.addEventListener('keyup', function(e) {
         const elem = document.getElementsByClassName(e.code)[0];
@@ -450,3 +508,8 @@ document.addEventListener('keydown', function(e) {
         }
         )
 
+        keyboardWrapper.addEventListener('mousedown', addText);
+        document.addEventListener('click', langSwitch);
+        document.addEventListener('mousedown', addActive);
+        // document.addEventListener('click', capsSwitch);
+        
