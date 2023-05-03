@@ -105,7 +105,7 @@ function createPage() {
     keyBoardMake();
 
    notifyMsg.className = 'message';
-   notifyMsg.innerHTML = "Клавиатура создана в операционной системе fndows.<br>Для переключения языка комбинация: левыe alt + shift";
+   notifyMsg.innerHTML = "Клавиатура создана в операционной системе fndows.<br>Для переключения языка комбинация: левыe shift + alt";
    wrapper.appendChild(notifyMsg);
 };
 createPage(body);
@@ -220,7 +220,7 @@ function langSwitch (event){
 
 // включение/выключение капса
 function capsSwitch(event){
-    let target = event.target;
+    // let target = event.target;
     // для англ клавиатуры
     if((document.querySelector('.keyboard').classList.contains('eng'))){
         
@@ -389,3 +389,50 @@ function addText(event){
 keyboard.addEventListener('click', addText);
 keyboard.addEventListener('click', langSwitch);
 keyboard.addEventListener('click', addActive);
+
+
+
+
+
+
+
+document.addEventListener('keydown', function(e) {
+    const elem = document.getElementsByClassName(e.code)[0];
+    elem.classList.add('active');
+    console.log(e.code);
+
+    if(e.code == 'AltLeft' && (document.querySelector('.ShiftLeft').classList.contains('active'))) {
+        document.querySelectorAll('.keyboard__key').forEach((element)=>{
+           if(element.classList.contains('lang_hidden')){
+            element.classList.remove('lang_hidden');
+        }else{
+            element.classList.add('lang_hidden');
+        }
+    }
+    )
+}else if(e.code == 'CapsLock'){
+    if(document.querySelector('.CapsLock').classList.contains('capslock_active')){
+        elem.classList.remove('capslock_active');
+    }else{
+        elem.classList.add('capslock_active');
+    }
+    capsSwitch();
+}
+
+
+
+
+    }, 100);
+
+    document.addEventListener('keyup', function(e) {
+        const elem = document.getElementsByClassName(e.code)[0];
+        elem.classList.remove('active');
+    
+        
+    
+    
+    }
+        
+        
+        
+        )

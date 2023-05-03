@@ -26,8 +26,6 @@ width: 1200px;
 }
 .page-header {
     width: 100%;
-    
-    
 }
 .page-title {
     text-align: center;
@@ -80,8 +78,6 @@ width: 1200px;
     border-radius: 3px;
     cursor: pointer;
     transition: 0.2s;
-}
-.rus {
 }
 
 .upper-case,
