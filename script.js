@@ -397,6 +397,7 @@ keyboard.addEventListener('click', addActive);
 
 
 document.addEventListener('keydown', function(e) {
+    textArea.focus();
     const elem = document.getElementsByClassName(e.code)[0];
     elem.classList.add('active');
     console.log(e.code);
@@ -427,12 +428,6 @@ document.addEventListener('keydown', function(e) {
     document.addEventListener('keyup', function(e) {
         const elem = document.getElementsByClassName(e.code)[0];
         elem.classList.remove('active');
-    
-        
-    
-    
-    }
-        
-        
-        
+        }
         )
+
