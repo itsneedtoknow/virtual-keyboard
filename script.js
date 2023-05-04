@@ -347,8 +347,8 @@ document.addEventListener('keydown', function(e){
 // печать текста
 function addText(event){
     let target = event.target;
-
-    if(target.textContent != 'Backspace' && target.textContent !== 'CapsLock' && target.textContent !== 'Tab' && target.textContent !== 'Enter' && target.textContent !== 'Shift' && target.textContent !== 'Alt'&& target.textContent !== 'Ctrl' && target.textContent !== 'Del'){
+console.log(target.textContent)
+    if(target.textContent != 'Backspace' && target.textContent !== 'CapsLock' && target.textContent !== 'Tab' && target.textContent !== 'Enter' && target.textContent !== 'Shift' && target.textContent !== 'Alt'&& target.textContent !== 'Ctrl' && target.textContent !== 'Del'&& target.textContent !== '◄' && target.textContent !== '►' && target.textContent !== '▲' && target.textContent !== '▼'){
         if(document.querySelector('.CapsLock').classList.contains('capslock_active')) {    
 
             textArea.value += target.textContent.toUpperCase();
@@ -390,6 +390,14 @@ function addText(event){
 
         textArea.value += '\n';
 
+    }else if(target.textContent == '◄'){
+        event.preventDefault();
+        let cursorPosition = textArea.selectionStart;
+        textArea.setSelectionRange(cursorPosition - 1, cursorPosition-1);
+    }else if(target.textContent == '►'){
+        event.preventDefault();
+        let cursorPosition = textArea.selectionStart;
+        textArea.setSelectionRange(cursorPosition + 1, cursorPosition+1);
     }
     
 };
@@ -477,9 +485,13 @@ document.addEventListener('keydown', function(e) {
 
     elem.classList.add('active');
     }else if(e.code == 'ArrowLeft'){
-        e.preventDefault();
+        
         let focusPosition = textArea.selectionStart;
         textArea.selectionEnd = focusPosition - 1;
+    }else if(e.code == 'ArrowRight'){
+        
+        let focusPosition = textArea.selectionStart;
+        textArea.setSelectionRange = (focusPosition+1, focusPosition + 1);
     }
     
 })
