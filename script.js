@@ -207,7 +207,7 @@ function addActive (event){
 // переключение языка
 function langSwitch (event){
     let target = event.target;
-    console.log(document.querySelector('.ShiftLeft').classList)
+    
     if(target.textContent == 'Alt' && (document.querySelector('.ShiftLeft').classList.contains('shift_active'))) {
         
 
@@ -347,7 +347,7 @@ document.addEventListener('keydown', function(e){
 // печать текста
 function addText(event){
     let target = event.target;
-console.log(target.textContent)
+
     if(target.textContent != 'Backspace' && target.textContent !== 'CapsLock' && target.textContent !== 'Tab' && target.textContent !== 'Enter' && target.textContent !== 'Shift' && target.textContent !== 'Alt'&& target.textContent !== 'Ctrl' && target.textContent !== 'Del'&& target.textContent !== '◄' && target.textContent !== '►' && target.textContent !== '▲' && target.textContent !== '▼'){
         if(document.querySelector('.CapsLock').classList.contains('capslock_active')) {    
 
@@ -399,6 +399,19 @@ console.log(target.textContent)
         let cursorPosition = textArea.selectionStart;
         textArea.setSelectionRange(cursorPosition + 1, cursorPosition+1);
     }
+    // else if(target.textContent == '▲'){
+    //     event.preventDefault();
+    //     let cursorPosition = textArea.selectionStart;
+    //     let textRow = textArea.value.split('\n');
+    //     let lastRow = textRow[textRow.length - 1];
+    //     let previousRow = textRow[textRow.length - 2];
+    //     // textRow.forEach(element=>
+    //     //     if())
+    //     console.log(textRow)
+    //     console.log(lastRow)
+    //     console.log(previousRow)
+    //     textArea.setSelectionRange(cursorPosition + 1, cursorPosition+1);
+    // }
     
 };
 
@@ -484,14 +497,6 @@ document.addEventListener('keydown', function(e) {
 }
 
     elem.classList.add('active');
-    }else if(e.code == 'ArrowLeft'){
-        
-        let focusPosition = textArea.selectionStart;
-        textArea.selectionEnd = focusPosition - 1;
-    }else if(e.code == 'ArrowRight'){
-        
-        let focusPosition = textArea.selectionStart;
-        textArea.setSelectionRange = (focusPosition+1, focusPosition + 1);
     }
     
 })
