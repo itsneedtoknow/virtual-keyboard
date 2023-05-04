@@ -89,7 +89,7 @@ function createPage() {
 
 
     // textarea
-        textArea.className='textarea';
+        textArea.className='textarea autofocus';
         wrapper.appendChild(textArea);  
 
     // keyboard
@@ -476,6 +476,10 @@ document.addEventListener('keydown', function(e) {
 }
 
     elem.classList.add('active');
+    }else if(e.code == 'ArrowLeft'){
+        e.preventDefault();
+        let focusPosition = textArea.selectionStart;
+        textArea.selectionEnd = focusPosition - 1;
     }
     
 })
